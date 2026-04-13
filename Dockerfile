@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/runtime:6.0.36
 
-ARG CA_VERSION=1.08.2
+ARG CA_VERSION
 
 RUN apt update && \
     apt install --no-install-recommends -y python3 unzip curl jq && \
