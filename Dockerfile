@@ -9,7 +9,7 @@ RUN apt update && \
 
 WORKDIR /camod
 
-RUN curl -fsSL -o camod.zip https://github.com/Inq8/CAmod/releases/download/1.08.2/CombinedArms-${CA_VERSION}-x64-winportable.zip && \
+RUN curl -fsSL -o camod.zip https://github.com/Inq8/CAmod/releases/download/${CA_VERSION}/CombinedArms-${CA_VERSION}-x64-winportable.zip && \
     unzip camod.zip && \
     rm camod.zip && \
     # Grab mod.config and re-point engine
