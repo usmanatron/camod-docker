@@ -2,6 +2,8 @@
 
 Build a Docker container for Combined Arms, an OpenRA mod.  the main usage of this is to setup a dedicated (headless) server on Linux for multiplayer matches
 
+Examples on how to run this are in the [examples](./examples/) directory.
+
 ## Getting this to work
 
 As of today, the only release built for Linux is an AppImage, which won't work for us easily.  Therefore we take the "winportable" release and tweak the config to point it to the Linux Dotnet runtime instead.

@@ -1,0 +1,13 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: camod
+spec:
+  entryPoints:
+    - my-new-entrypoint
+  routes:
+    - match: HostSNI(`*`)
+      services:
+        - name: camod
+          port: 8000

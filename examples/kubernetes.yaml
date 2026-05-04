@@ -1,0 +1,49 @@
+---
+# Probes are omitted on purpose - see readme!
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: camod
+  template:
+    metadata:
+      labels:
+        app: camod
+    spec:
+      containers:
+        - name: camod
+          image: ghcr.io/usmanatron/camod:1.08.2
+          env:
+            - name: Name
+              value: "My Server"
+            - name: AdvertiseOnline
+              value: "False"
+            - name: EnableSingleplayer
+              value: "True"
+          resources:
+            requests:
+              cpu: "1000m"
+              memory: "512Mi"
+            limits:
+              cpu: "2000m"
+              memory: "1Gi"
+          ports:
+            - name: openra
+              containerPort: 1234
+---
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: camod
+spec:
+  type: ClusterIP
+  selector:
+    app: camod
+  ports:
+    - name: openra
+      port: 8000
+      targetPort: openra

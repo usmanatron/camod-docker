@@ -1,0 +1,10 @@
+services:
+  camod:
+    image: ghcr.io/usmanatron/camod:1.08.2
+    restart: always
+    ports:
+      - 1234:1234
+    environment:
+      Name: My Server
+      AdvertiseOnline: "False"
+      EnableSingleplayer: "True"
